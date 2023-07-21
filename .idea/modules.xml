@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/dominio-hexa/Dominio.iml" filepath="$PROJECT_DIR$/dominio-hexa/Dominio.iml" />
+      <module fileurl="file://$PROJECT_DIR$/discovery-server/discovery.iml" filepath="$PROJECT_DIR$/discovery-server/discovery.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gateway-server/gateway.iml" filepath="$PROJECT_DIR$/gateway-server/gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/negocio-hexa/hexa.iml" filepath="$PROJECT_DIR$/negocio-hexa/hexa.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modelos/modelos.iml" filepath="$PROJECT_DIR$/modelos/modelos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/platform.iml" filepath="$PROJECT_DIR$/platform.iml" />
+    </modules>
+  </component>
+</project>

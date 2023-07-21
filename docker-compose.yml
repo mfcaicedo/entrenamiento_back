@@ -1,0 +1,78 @@
+version: "3"
+services:
+  hexa-discovery-server:
+    image: registry.ciberdix.com/com.hexa.entrenamiento-discovery:${VERSION}
+    container_name: discovery-hexa
+    environment:
+      REGISTRY_URL: http://${IPSERVIDOR}:8763/eureka
+      CERT_PATH: /home/administrator/certificados/
+      KEYSTORE_NAME: ${KEYSTORE_NAME}
+      PROFILE: ${PROFILE}
+      STORE_PASSWORD: ${STORE_PASSWORD}
+      KEY_PASSWORD: ${KEY_PASSWORD}
+      KEY_ALIAS: ${KEY_ALIAS}
+    volumes:
+      - ./.docker:/home/administrator/certificados
+    network_mode: host
+    restart: always
+
+  hexa-dominio-hexa:
+    image: registry.ciberdix.com/com.hexa.entrenamiento.dominio-hexa:${VERSION}
+    container_name: dominio-hexa
+    environment:
+      REGISTRY_URL: http://${IPSERVIDOR}:8763/eureka
+      DATABASE_URL: ${DATABASE_URL}
+      DATABASE_PORT: ${DATABASE_PORT}
+      DATABASE_USER: ${DATABASE_USER}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+      CERT_PATH: /home/administrator/certificados/
+      KEYSTORE_NAME: ${KEYSTORE_NAME}
+      PROFILE: ${PROFILE}
+      PROFILE_SQL: ${PROFILE_SQL}
+      STORE_PASSWORD: ${STORE_PASSWORD}
+      KEY_PASSWORD: ${KEY_PASSWORD}
+      KEY_ALIAS: ${KEY_ALIAS}
+    network_mode: host
+    volumes:
+      - ./.docker:/home/administrator/certificados
+    restart: always
+
+  hexa-negocio-hexa:
+    image: registry.ciberdix.com/com.hexa.entrenamiento.negocio-hexa:${VERSION}
+    container_name: negocio-hexa
+    environment:
+      REGISTRY_URL: http://${IPSERVIDOR}:8763/eureka
+      CERT_PATH: /home/administrator/certificados/
+      KEYSTORE_NAME: ${KEYSTORE_NAME}
+      PROFILE: ${PROFILE}
+      STORE_PASSWORD: ${STORE_PASSWORD}
+      KEY_PASSWORD: ${KEY_PASSWORD}
+      KEY_ALIAS: ${KEY_ALIAS}
+      PROTOCOL: ${PROTOCOL}
+    network_mode: host
+    volumes:
+      - ./.docker:/home/administrator/certificados
+    restart: always
+
+  hexa-gateway:
+    image: registry.ciberdix.com/com.hexa.entrenamiento-gateway:${VERSION}
+    container_name: gateway-hexa
+    environment:
+      REGISTRY_URL: http://${IPSERVIDOR}:8763/eureka
+      CERT_PATH: /home/administrator/certificados/
+      KEYSTORE_NAME: ${KEYSTORE_NAME}
+      PROFILE: ${PROFILE}
+      PUERTO: ${PUERTO}
+      STORE_PASSWORD: ${STORE_PASSWORD}
+      KEY_PASSWORD: ${KEY_PASSWORD}
+      KEY_ALIAS: ${KEY_ALIAS}
+    volumes:
+      - ./.docker:/home/administrator/certificados
+    network_mode: host
+    restart: always
+
+volumes:
+  esdata1:
+    driver: local
+  esdata2:
+    driver: local
